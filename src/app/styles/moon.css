@@ -1,0 +1,74 @@
+.moon-container {
+    /* Left + width/2 should be 50 */
+    --umbra-shadow-left: 0%;
+    --umbra-shadow-width: 100%;
+    --umbra-background: black;
+    --umbra-shadow-background: none;
+    --container-width:30px;
+
+    overflow: hidden;
+    position: relative;
+    width: var(--container-width);
+    height: var(--container-width);
+}
+
+.moon-container .moon {
+    background-color: black;
+    object-fit: contain;
+    max-width: 100%;
+    position: absolute;
+    width: 100%;
+}
+.moon-container .moon-left-container {
+    height: 100%;
+    position: absolute;
+    object-fit: contain;
+    overflow: hidden;
+    width: 50%;
+}
+.moon-container .moon-left-container .moon-left {
+    aspect-ratio: 1;
+    position: absolute;
+    height: 100%;
+}
+.moon-container .moon-right-container {
+    height: 100%;
+    left: 50%;
+    object-fit: contain;
+    overflow: hidden;
+    position: absolute;
+    width: 50%;
+}
+.moon-container .moon-right-container .moon-right {
+    aspect-ratio: 1;
+    height: 100%;
+    left: -100%;
+    position: absolute;
+}
+
+.moon-container .umbra {
+    height: var(--container-width);
+    overflow: hidden;
+    position: absolute;
+    width: var(--container-width);
+}
+
+.moon-container .umbra:before {
+    background: var(--umbra-background);
+    border-radius: 50%;
+    /* make sure the width is the same as its parent */
+    box-shadow: 0 0 0 var(--container-width) var(--umbra-shadow-background);
+    filter:blur(15px);
+    content: "";
+    position: absolute;
+    left: var(--umbra-shadow-left);
+    padding-bottom: 150%;
+    top: -25%;
+    width: var(--umbra-shadow-width);
+}
+
+.moon-blur-gradient {
+    height: var(--container-width);
+    position: absolute;
+    width: var(--container-width);
+}
